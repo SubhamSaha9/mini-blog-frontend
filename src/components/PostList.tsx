@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 export default function PostsList() {
   const dispatch = useDispatch<AppDispatch>();
   const { posts } = useSelector((state: RootState) => state.posts);
+  console.log(posts);
 
   const fetchPosts = async () => {
     try {
@@ -22,7 +23,7 @@ export default function PostsList() {
     fetchPosts();
   }, []);
 
-  if (posts.length === 0) {
+  if (posts?.length === 0) {
     return (
       <div className="text-center py-12">
         <p className="text-muted-foreground">
@@ -34,7 +35,7 @@ export default function PostsList() {
 
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {posts.length > 0 &&
+      {posts?.length > 0 &&
         posts?.map((post) => (
           <Link key={post._id} href={`/posts/${post._id}`}>
             <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
