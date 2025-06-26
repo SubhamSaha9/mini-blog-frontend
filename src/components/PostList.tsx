@@ -20,7 +20,7 @@ export default function PostsList() {
 
   useEffect(() => {
     fetchPosts();
-  }, [dispatch]);
+  }, []);
 
   if (posts.length === 0) {
     return (
