@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 export default function PostsList() {
   const dispatch = useDispatch<AppDispatch>();
   const { posts } = useSelector((state: RootState) => state.posts);
-  console.log(posts);
 
   const fetchPosts = async () => {
     try {
